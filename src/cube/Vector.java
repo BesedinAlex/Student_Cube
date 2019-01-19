@@ -1,4 +1,4 @@
-package geometry;
+package cube;
 
 public class Vector {
     public double x, y, z;
@@ -22,15 +22,15 @@ public class Vector {
     public Vector cross(Vector vector) {
         return new Vector(this.y * vector.z - this.z * vector.y , this.z * vector.x - this.x * vector.z, this.x * vector.y - this.y * vector.x);
     }
-    public Vector rotateByX(double angle) {
+    private Vector rotateByX(double angle) {
         angle *= Math.PI / 180;
         return new Vector(this.x, this.y * Math.cos(angle) + this.z * Math.sin(angle), -this.y * Math.sin(angle) + this.z * Math.cos(angle));
     }
-    public Vector rotateByY(double angle) {
+    private Vector rotateByY(double angle) {
         angle *= Math.PI / 180;
         return new Vector(this.x * Math.cos(angle) + this.z * Math.sin(angle), this.y , -this.x * Math.sin(angle) + this.z * Math.cos(angle));
     }
-    public Vector rotateByZ(double angle) {
+    private Vector rotateByZ(double angle) {
         angle *= Math.PI / 180;
         return new Vector(this.x * Math.cos(angle) - this.y * Math.sin(angle), this.x * Math.sin(angle) + this.y * Math.cos(angle), this.z);
     }

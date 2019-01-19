@@ -1,4 +1,4 @@
-package geometry;
+package cube;
 
 import javax.swing.event.*;
 

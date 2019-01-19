@@ -1,4 +1,4 @@
-package geometry;
+package cube;
 
 import java.awt.*;
 import java.awt.geom.*;
@@ -16,15 +16,6 @@ public class Face {
     }
     public Vector normal() {
         return vector[2].minus(vector[1]).cross(vector[1].minus(vector[0]));
-    }
-    public void rotateByX(double angle) {
-        for (int i = 0; i < 4; i++) vector[i] = vector[i].rotateByX(angle);
-    }
-    public void rotateByY(double angle) {
-        for (int i = 0; i < 4; i++) vector[i] = vector[i].rotateByY(angle);
-    }
-    public void rotateByZ(double angle) {
-        for (int i = 0; i < 4; i++) vector[i] = vector[i].rotateByZ(angle);
     }
     public Face rotate(double angleX, double angleY, double angleZ) {
         for (int i = 0; i < 4; i++) vector[i] = vector[i].rotate(angleX, angleY, angleZ);
