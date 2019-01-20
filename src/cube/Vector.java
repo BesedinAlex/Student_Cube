@@ -7,15 +7,6 @@ public class Vector {
         this.y = y;
         this.z = z;
     }
-    public double dot(Vector vector) {
-        return vector.x * x + vector.y * y + vector.z * z;
-    }
-    public Vector multiplyByNumber(double a) {
-        return new Vector (this.x * a, this.y * a, this.z * a);
-    }
-    public Vector plus(Vector vector) {
-        return new Vector(this.x + vector.x, this.y + vector.y, this.z + vector.z);
-    }
     public Vector minus(Vector vector) {
         return new Vector(this.x - vector.x, this.y - vector.y, this.z - vector.z);
     }

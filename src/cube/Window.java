@@ -6,11 +6,12 @@ import javax.swing.*;
 public class Window extends JFrame {
     private final Container pane = getContentPane();
     public JSlider headingSlider, pitchSlider;
+    public JButton changeView;
     public Window(Cube cube) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pane.setLayout(new BorderLayout());
-        headingSlider = new JSlider(0, 360, 0);
-        pitchSlider = new JSlider(SwingConstants.VERTICAL, 0, 360, 0);
+        headingSlider = new JSlider(-180, 180, 0);
+        pitchSlider = new JSlider(SwingConstants.VERTICAL, -180, 180, 0);
         pane.add(headingSlider, BorderLayout.SOUTH);
         pane.add(pitchSlider, BorderLayout.EAST);
         JPanel renderPanel = new JPanel() {
@@ -24,6 +25,8 @@ public class Window extends JFrame {
             }
         };
         pane.add(renderPanel, BorderLayout.CENTER);
+        changeView = new JButton("Change View");
+        pane.add(changeView, BorderLayout.NORTH);
         setSize(800, 800);
         setVisible(true);
     }

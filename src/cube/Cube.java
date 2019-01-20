@@ -7,6 +7,7 @@ public class Cube {
     private Face[] face;
     private Color color = new Color(0, 0, 0);
     private double[] angles = {0, 0, 0};
+    public boolean altView;
     public Cube(double size) {
         vector = new Vector[] {
             new Vector(0, 0, 0),
@@ -34,13 +35,13 @@ public class Cube {
         angles[2] += angleZ;
     }
     public void draw(Graphics2D g2) {
-        for (int i = 0; i < 6; i++) face[i].draw(g2);
-    }
-    public void draw(Graphics2D g2, double c) {
-        for (int i = 0; i < 6; i++) face[i].draw(g2, c);
+        for (int i = 0; i < 6; i++) {
+            face[i].altView = altView;
+            face[i].draw(g2);
+        }
     }
     public void move(double x, double y, double z) {
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 8; i++) {
             vector[i].x += x;
             vector[i].y += y;
             vector[i].z += z;
