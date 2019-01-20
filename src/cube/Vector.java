@@ -37,7 +37,4 @@ public class Vector {
     public Vector rotate(double angleX, double angleY, double angleZ) {
         return this.rotateByX(angleX).rotateByY(angleY).rotateByZ(angleZ);
     }
-    public void printCoordinates() {
-        System.out.println(" x = " + this.x + " y = " + this.y + " z = " + this.z);
-    }
 }

@@ -9,8 +9,8 @@ public class Window extends JFrame {
     public Window(Cube cube) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pane.setLayout(new BorderLayout());
-        headingSlider = new JSlider(0, 360, 180);
-        pitchSlider = new JSlider(SwingConstants.VERTICAL, -90, 90, 0);
+        headingSlider = new JSlider(0, 360, 0);
+        pitchSlider = new JSlider(SwingConstants.VERTICAL, 0, 360, 0);
         pane.add(headingSlider, BorderLayout.SOUTH);
         pane.add(pitchSlider, BorderLayout.EAST);
         JPanel renderPanel = new JPanel() {

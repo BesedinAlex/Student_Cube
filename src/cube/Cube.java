@@ -6,8 +6,9 @@ public class Cube {
     private Vector[] vector;
     private Face[] face;
     private Color color = new Color(0, 0, 0);
+    private double[] angles = {0, 0, 0};
     public Cube(double size) {
-        this.vector = new Vector[] {
+        vector = new Vector[] {
             new Vector(0, 0, 0),
             new Vector(size, 0, 0),
             new Vector(size, size, 0),
@@ -17,7 +18,7 @@ public class Cube {
             new Vector(size, size, size),
             new Vector(0, size, size)
         };
-        this.face = new Face[] {
+        face = new Face[] {
             new Face(vector[0], vector[1], vector[2], vector[3], color.green),
             new Face(vector[1], vector[5], vector[6], vector[2], color.blue),
             new Face(vector[6], vector[7], vector[3], vector[2], color.yellow),
@@ -27,7 +28,10 @@ public class Cube {
         };
     }
     public void rotate(double angleX, double angleY, double angleZ) {
-       for (int i = 0; i < 6; i++) face[i].rotate(angleX, angleY, angleZ);
+        for (int i = 0; i < 6; i++) face[i].rotate(angleX, angleY, angleZ);
+        angles[0] += angleX;
+        angles[1] += angleY;
+        angles[2] += angleZ;
     }
     public void draw(Graphics2D g2) {
         for (int i = 0; i < 6; i++) face[i].draw(g2);
@@ -41,5 +45,8 @@ public class Cube {
             vector[i].y += y;
             vector[i].z += z;
         }
+    }
+    public double[] getAngles() {
+        return angles;
     }
 }

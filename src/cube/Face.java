@@ -21,9 +21,6 @@ public class Face {
         for (int i = 0; i < 4; i++) vector[i] = vector[i].rotate(angleX, angleY, angleZ);
         return new Face(vector[0], vector[1], vector[2], vector[3]);
     }
-    public void printVectors() {
-        for (int i = 0; i < 4; i++) vector[i].printCoordinates();
-    }
     public void draw(Graphics2D g2) {
         g2.setColor(color);
         if (this.normal().z < 0) {

@@ -4,15 +4,21 @@ import javax.swing.event.*;
 
 public class Control {
     public Control(Cube cube, Window window) {
-        window.pitchSlider.addChangeListener(new ChangeListener() {
+        window.headingSlider.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                cube.rotate((window.pitchSlider.getValue() - 360) / 360, 0, 0);
+                double currentAngle = cube.getAngles()[1], sliderValue = -window.headingSlider.getValue(), toChange = 0;
+                if (currentAngle > sliderValue) toChange = -(currentAngle - sliderValue);
+                if (currentAngle < sliderValue) toChange = sliderValue - currentAngle;
+                cube.rotate(0, toChange, 0);
                 window.repaint();
             }
         });
-        window.headingSlider.addChangeListener(new ChangeListener() {
+        window.pitchSlider.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                cube.rotate(0, window.headingSlider.getValue() / 180, 0);
+                double currentAngle = cube.getAngles()[0], sliderValue = -window.pitchSlider.getValue(), toChange = 0;
+                if (currentAngle > sliderValue) toChange = -(currentAngle - sliderValue);
+                if (currentAngle < sliderValue) toChange = sliderValue - currentAngle;
+                cube.rotate(toChange, 0, 0);
                 window.repaint();
             }
         });
