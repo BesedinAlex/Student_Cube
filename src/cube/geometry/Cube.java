@@ -1,4 +1,4 @@
-package cube;
+package cube.geometry;
 
 import java.awt.*;
 
@@ -41,7 +41,7 @@ public class Cube {
         for (int i = 0; i < 8; i++)
             vectors[i].move(x, y, z);
     }
-    public double[] angles() {
+    public double[] getAngles() {
         return angles;
     }
 }

@@ -1,5 +1,8 @@
 package cube;
 
+import cube.geometry.Cube;
+import cube.viewer.*;
+
 public class Main {
     public static void main(String[] args) {
         Cube cube = new Cube(100);
